@@ -10,16 +10,17 @@
       --brand-green:#2e8b57;
       --brand-yellow:#f2b705;
 
-      /* Grey system */
-      --bg-top:#8c9098;
-      --bg-mid:#666972;
-      --bg-bottom:#2c2f36;
+      /* Tone system: dark outer, medium inner, darker cards */
+      --body-top:#202227;
+      --body-bottom:#090a0f;
 
-      --card:#21232a;
-      --card-soft:#272a32;
-      --border:#3c3f48;
+      --page-light:#464850;
+      --page-dark:#3a3c44;
+
+      --card:#292b33;
+      --card-soft:#22242c;
+      --border:#4a4d57;
       --muted:#b4b7c0;
-      --danger:#df4759;
       --ink:#f5f6f9;
     }
 
@@ -33,7 +34,7 @@
     body{
       color:var(--ink);
       background:
-        radial-gradient(circle at 12% -10%, var(--bg-top) 0, var(--bg-mid) 38%, var(--bg-bottom) 100%);
+        radial-gradient(circle at 50% -40%, var(--body-top) 0, #15171d 40%, var(--body-bottom) 100%);
       min-height:100vh;
     }
 
@@ -42,15 +43,16 @@
       color:inherit;
     }
 
-    /* Main shell card (this is what makes it feel “locked in”) */
+    /* MAIN SHELL (INNER PANEL) */
+
     .page{
       max-width:1080px;
       margin:32px auto 40px;
       padding:24px 22px 40px;
-      background:rgba(17,18,23,0.96);
+      background:linear-gradient(145deg,var(--page-light) 0,var(--page-dark) 100%);
       border-radius:26px;
-      box-shadow:0 24px 70px rgba(0,0,0,0.9);
-      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 26px 80px rgba(0,0,0,0.88);
+      border:1px solid rgba(0,0,0,0.7);
     }
 
     /* HEADER */
@@ -72,7 +74,7 @@
     }
 
     .logo-mark img{
-      height:96px;
+      height:96px;   /* bumped up for presence */
       width:auto;
       display:block;
     }
@@ -103,10 +105,10 @@
       display:inline-flex;
       align-items:center;
       gap:6px;
-      background:rgba(255,255,255,0.03);
+      background:rgba(0,0,0,0.35);
       border-radius:999px;
       padding:4px 11px;
-      border:1px solid rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.18);
       font-size:11px;
       color:#f1f2f6;
       margin-bottom:10px;
@@ -142,7 +144,7 @@
     }
 
     .hero p{
-      color:#e1e2ea;
+      color:#e5e6ef;
       font-size:14.5px;
       line-height:1.65;
       max-width:560px;
@@ -206,21 +208,21 @@
     }
 
     .logo-row img{
-      height:40px;
+      height:60px;   /* larger powered-by logo */
       width:auto;
       object-fit:contain;
     }
 
-    /* HERO SNAPSHOT */
+    /* HERO SNAPSHOT CARD */
 
     .hero-card{
       background:
-        radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, rgba(255,255,255,0.02) 26%, transparent 60%),
-        linear-gradient(145deg, var(--card) 0, var(--card-soft) 100%);
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.10) 0, rgba(255,255,255,0.02) 26%, transparent 60%),
+        linear-gradient(145deg,#2c2e36 0,#23252d 100%);
       border-radius:20px;
       padding:16px 16px 14px;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 16px 40px rgba(0,0,0,0.85);
+      border:1px solid rgba(0,0,0,0.85);
+      box-shadow:0 18px 46px rgba(0,0,0,0.9);
     }
 
     .hero-card-title{
@@ -279,9 +281,9 @@
     }
 
     .metric-pill{
-      background:rgba(5,6,10,0.24);
+      background:rgba(0,0,0,0.35);
       border-radius:12px;
-      border:1px solid rgba(255,255,255,0.08);
+      border:1px solid rgba(0,0,0,0.85);
       padding:8px 9px;
     }
 
@@ -304,12 +306,12 @@
       margin-top:1px;
     }
 
-    /* SECTIONS / BANDS */
+    /* SECTIONS */
 
     .section{
       margin-top:38px;
       padding-top:22px;
-      border-top:1px solid rgba(255,255,255,0.09);
+      border-top:1px solid rgba(0,0,0,0.65);
     }
 
     .section h2{
@@ -319,12 +321,12 @@
 
     .section p.lead{
       font-size:13.5px;
-      color:#dedfe7;
+      color:#e4e5ee;
       max-width:720px;
       margin-bottom:16px;
     }
 
-    /* PILLARS */
+    /* PILLAR CARDS */
 
     .pill-grid{
       display:grid;
@@ -338,11 +340,11 @@
     }
 
     .trio-pill{
-      background:linear-gradient(145deg,rgba(23,24,31,0.96),rgba(32,34,42,0.96));
+      background:linear-gradient(145deg,#2b2d34 0,#23252b 100%);
       border-radius:18px;
-      border:1px solid var(--border);
+      border:1px solid rgba(0,0,0,0.85);
       padding:12px 12px 14px;
-      box-shadow:0 12px 32px rgba(0,0,0,0.7);
+      box-shadow:0 14px 40px rgba(0,0,0,0.9);
       min-height:158px;
     }
 
@@ -372,7 +374,7 @@
       line-height:1.6;
     }
 
-    /* DASHBOARDS */
+    /* DASHBOARD CARDS */
 
     .dash-grid{
       display:grid;
@@ -388,9 +390,9 @@
     .dash-card{
       border-radius:18px;
       padding:12px 12px 14px;
-      border:1px solid rgba(255,255,255,0.09);
-      background:linear-gradient(145deg,rgba(21,23,29,0.98),rgba(35,38,47,0.98));
-      box-shadow:0 14px 34px rgba(0,0,0,0.8);
+      border:1px solid rgba(0,0,0,0.85);
+      background:linear-gradient(145deg,#262830 0,#202229 100%);
+      box-shadow:0 18px 46px rgba(0,0,0,0.9);
       min-height:190px;
     }
 
@@ -444,7 +446,7 @@
       height:8px;
       border-radius:999px;
       overflow:hidden;
-      background:rgba(5,6,11,0.7);
+      background:rgba(0,0,0,0.7);
       margin-bottom:6px;
       position:relative;
     }
@@ -469,7 +471,7 @@
     footer{
       margin-top:40px;
       padding-top:16px;
-      border-top:1px solid rgba(255,255,255,0.12);
+      border-top:1px solid rgba(0,0,0,0.75);
       font-size:11px;
       color:#d0d2dd;
       display:flex;
@@ -480,7 +482,7 @@
 
     .footer-small{
       font-size:10px;
-      color:#a5a7b0;
+      color:#b3b4bf;
       max-width:420px;
     }
   </style>

@@ -93,6 +93,7 @@
     }
     nav a{
       opacity:0.85;
+      cursor:pointer;
     }
     nav a:hover{
       opacity:1;
@@ -214,16 +215,197 @@
       padding:0;
     }
 
-    /* The rest of the code (cards, dashboards, section styling) remains unchanged */
+    /* HERO SNAPSHOT CARD */
+
+    .hero-card{
+      background:var(--card);
+      border-radius:18px;
+      padding:16px 16px 14px;
+      border:1px solid var(--border);
+      box-shadow:0 18px 40px rgba(0,0,0,0.85);
+    }
+
+    .hero-card-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#c4cae8;
+      margin-bottom:10px;
+    }
+
+    .hero-gauge{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
+
+    .gauge-bar{
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--brand-green) 0,var(--brand-yellow) 50%,#df4759 100%);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .gauge-needle{
+      position:absolute;
+      top:-4px;
+      width:2px;
+      height:18px;
+      background:#fff;
+      border-radius:999px;
+      left:62%;
+      box-shadow:0 0 10px rgba(255,255,255,0.9);
+    }
+
+    .gauge-labels{
+      display:flex;
+      justify-content:space-between;
+      font-size:10px;
+      color:#a6acce;
+    }
+    .gauge-labels span:first-child{color:#7ce9b4;}
+    .gauge-labels span:last-child{color:#ff9ba8;}
+
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .metric-pill{
+      background:#080f26;
+      border-radius:12px;
+      border:1px solid #222b52;
+      padding:8px 9px;
+    }
+
+    .metric-label{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#aab2dd;
+      margin-bottom:2px;
+    }
+
+    .metric-value{font-size:15px;font-weight:900;}
+    .metric-sub{font-size:11px;color:#b7bddf;margin-top:1px;}
+
+    /* SECTION STYLES */
+
+    .section{margin-top:34px;}
+    .section h2{font-size:18px;margin-bottom:6px;}
+    .section p.lead{
+      font-size:13.5px;
+      color:#c4cae8;
+      max-width:720px;
+      margin-bottom:14px;
+    }
+
+    .pill-grid{display:grid;gap:14px;}
+    @media(min-width:800px){
+      .pill-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    }
+    .trio-pill{
+      background:var(--card);
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:12px 12px 13px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.7);
+    }
+    .trio-tag{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      color:#9fa6d8;
+      margin-bottom:4px;
+    }
+    .trio-title{font-size:13.5px;font-weight:800;margin-bottom:4px;}
+    .trio-title span{font-size:11px;font-weight:600;color:var(--muted);}
+    .trio-body{font-size:12px;color:#d0d4ef;line-height:1.5;}
+
+    .dash-grid{display:grid;gap:14px;}
+    @media(min-width:880px){
+      .dash-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    }
+    .dash-card{
+      border-radius:16px;
+      padding:12px 11px 14px;
+      border:1px solid rgba(25,31,72,0.95);
+      background:#070e22;
+      box-shadow:0 14px 32px rgba(0,0,0,0.75);
+    }
+    .dash-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#a6acce;
+      margin-bottom:4px;
+    }
+    .dash-title{font-size:13.5px;font-weight:800;margin-bottom:6px;}
+    .dash-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:11px;
+      border-radius:999px;
+      padding:3px 8px;
+      margin-bottom:6px;
+    }
+    .dash-chip.low{
+      background:rgba(31,149,114,0.15);
+      color:#7ce9b4;
+      border:1px solid rgba(31,149,114,0.6);
+    }
+    .dash-chip.med{
+      background:rgba(242,183,5,0.12);
+      color:#ffe6a6;
+      border:1px solid rgba(242,183,5,0.6);
+    }
+    .dash-chip.high{
+      background:rgba(223,71,89,0.12);
+      color:#ffc3c7;
+      border:1px solid rgba(223,71,89,0.7);
+    }
+    .dash-chip span{font-size:14px;}
+    .dash-gauge{
+      height:8px;
+      border-radius:999px;
+      overflow:hidden;
+      background:rgba(12,14,38,0.9);
+      margin-bottom:6px;
+      position:relative;
+    }
+    .dash-gauge-fill{
+      height:100%;
+      background:linear-gradient(90deg,var(--brand-green),var(--brand-yellow),#df4759);
+    }
+    .dash-gauge.low .dash-gauge-fill{width:28%;}
+    .dash-gauge.med .dash-gauge-fill{width:58%;}
+    .dash-gauge.high .dash-gauge-fill{width:86%;}
+    .dash-text{font-size:11.5px;color:#d0d4ef;line-height:1.5;}
+
+    footer{
+      margin-top:40px;
+      padding-top:16px;
+      border-top:1px solid #181b30;
+      font-size:11px;
+      color:#8b92b6;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+    }
+    .footer-small{
+      font-size:10px;
+      color:#686f97;
+      max-width:420px;
+    }
 
   </style>
 </head>
+
 <body>
   <div class="page">
 
-    <!-- ---------------------------------- -->
-    <!--             NEW HEADER              -->
-    <!-- ---------------------------------- -->
+    <!-- NEW CENTERED HEADER -->
     <header>
       <div class="logo-wrap">
         <div class="logo-mark">
@@ -239,4 +421,218 @@
       </nav>
     </header>
 
-    <!-- hero + rest of your content remains unchanged -->
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div>
+        <div class="badge-pill">
+          <span>●</span> The Trinity of Volatility, Operations & Labor
+        </div>
+
+        <h1>
+          StaffHealth + Accushield Verified<br/>
+          <span>= VOL Health™ Volatility Index</span>
+        </h1>
+
+        <p>
+          VOL Health™ translates volatility into a simple stability score so senior living
+          operators can see, in minutes, where census swings, overtime, PBJ exposure, and
+          survey risk are silently draining value — and where a verified elasticity layer
+          can give it back.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://hudsonkeel.github.io/vol-health-index/calculator.html">
+            <button class="btn-primary">Launch VOL Health™ Index</button>
+          </a>
+
+          <a href="#how-it-works" class="btn-ghost">
+            <span>↓</span> How the model works
+          </a>
+        </div>
+
+        <div class="logo-row">
+          <span>Powered by:</span>
+          <img src="sh-av-logo.png" alt="StaffHealth + Accushield Verified">
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Sample VOL Health snapshot">
+        <div class="hero-card-title">Sample VOL Health™ Snapshot</div>
+
+        <div class="hero-gauge">
+          <div class="gauge-bar">
+            <div class="gauge-needle"></div>
+          </div>
+
+          <div class="gauge-labels">
+            <span>Low volatility</span>
+            <span>High volatility</span>
+          </div>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-pill">
+            <div class="metric-label">Stability score</div>
+            <div class="metric-value">62 / 100</div>
+            <div class="metric-sub">Moderate stability – early warning zone.</div>
+          </div>
+
+          <div class="metric-pill">
+            <div class="metric-label">Annual economics at stake</div>
+            <div class="metric-value">$480k – $960k</div>
+            <div class="metric-sub">Illustrative range influenced by volatility.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="trinity">
+      <h2>The Trinity of Volatility, Operations & Labor</h2>
+      <p class="lead">
+        VOL Health™ is a directional diagnostic, not a survey. It scores staffing “health” across ten volatility drivers
+        and ties them back to the three forces every operator feels daily: volatility, operations, and labor.
+      </p>
+
+      <div class="pill-grid">
+
+        <div class="trio-pill">
+          <div class="trio-tag">Pillar 1</div>
+          <div class="trio-title">Volatility <span>(census, acuity, PBJ, survey risk)</span></div>
+          <div class="trio-body">
+            Where are census swings, acuity spikes, and documentation gaps creating unpredictable pressure on the building?
+            VOL Health surfaces where variability is quietly turning into regulatory and financial risk.
+          </div>
+        </div>
+
+        <div class="trio-pill">
+          <div class="trio-tag">Pillar 2</div>
+          <div class="trio-title">Operations <span>(leadership bandwidth, reputation, liability)</span></div>
+          <div class="trio-body">
+            How much leadership time is being hijacked by staffing fires?
+            The model treats ED and DON bandwidth, incidents, and community reputation as operating assets – not afterthoughts.
+          </div>
+        </div>
+
+        <div class="trio-pill">
+          <div class="trio-tag">Pillar 3</div>
+          <div class="trio-title">Labor <span>(OT, call-outs, partner model)</span></div>
+          <div class="trio-body">
+            Overtime, call-outs, and partner sprawl are translated into a single stability view so operators can see when
+            traditional staffing approaches have become a volatility engine instead of a safety net.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="dashboards">
+      <h2>Three Stability Views at a Glance</h2>
+      <p class="lead">
+        Every run of VOL Health™ plots a building or portfolio into one of three directional bands. The goal isn’t a “perfect score” –
+        it’s a clear, shared language for where volatility is acceptable, emerging, or actively extracting value.
+      </p>
+
+      <div class="dash-grid">
+
+        <article class="dash-card">
+          <div class="dash-label">Dashboard skin</div>
+          <div class="dash-title">Low Stability Risk</div>
+          <div class="dash-chip low"><span>●</span> Low Volatility Zone</div>
+          <div class="dash-gauge low">
+            <div class="dash-gauge-fill"></div>
+          </div>
+          <div class="dash-text">
+            Stability scores in the 70–100 range. Volatility is present but managed: OT is contained, PBJ is clean, leadership is not
+            constantly pulled into staffing fires. Focus shifts to protecting this position as census and expectations evolve.
+          </div>
+        </article>
+
+        <article class="dash-card">
+          <div class="dash-label">Dashboard skin</div>
+          <div class="dash-title">Mixed Stability</div>
+          <div class="dash-chip med"><span>●</span> Watchlist Zone</div>
+          <div class="dash-gauge med">
+            <div class="dash-gauge-fill"></div>
+          </div>
+          <div class="dash-text">
+            Stability scores in the 40–69 range. Operations work, but OT, call-outs, or PBJ anxiety are quietly taxing the building.
+            A verified elasticity layer on weekends and pain shifts can pull this cohort back toward the green.
+          </div>
+        </article>
+
+        <article class="dash-card">
+          <div class="dash-label">Dashboard skin</div>
+          <div class="dash-title">High Volatility</div>
+          <div class="dash-chip high"><span>●</span> Red Flag Zone</div>
+          <div class="dash-gauge high">
+            <div class="dash-gauge-fill"></div>
+          </div>
+          <div class="dash-text">
+            Stability scores below 40. Volatility, survey exposure, and leadership burnout are likely extracting real dollars every month.
+            Here, the question isn’t “Should we do something?” – it’s “What’s the fastest, safest way to reduce downside risk?”
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="how-it-works">
+      <h2>How VOL Health™ Works with StaffHealth + Accushield Verified</h2>
+      <p class="lead">
+        VOL Health™ doesn’t replace your staffing strategy – it quantifies where an elasticity layer would do the most good,
+        then links that stability gain to an illustrative economic range.
+      </p>
+
+      <div class="pill-grid">
+
+        <div class="trio-pill">
+          <div class="trio-tag">Step 1</div>
+          <div class="trio-title">Score today’s volatility</div>
+          <div class="trio-body">
+            In ten questions, VOL Health™ captures census, acuity, OT, PBJ confidence, survey risk, incidents, reputation,
+            leadership bandwidth, partner model, and reimbursement pressure for a single community or a full portfolio.
+          </div>
+        </div>
+
+        <div class="trio-pill">
+          <div class="trio-tag">Step 2</div>
+          <div class="trio-title">Model elasticity impact</div>
+          <div class="trio-body">
+            You choose how aggressively to deploy StaffHealth as an elasticity layer – conservative, moderate, or strategic.
+            The model converts that choice into stability points gained and a directional annual economic range.
+          </div>
+        </div>
+
+        <div class="trio-pill">
+          <div class="trio-tag">Step 3</div>
+          <div class="trio-title">Decide where to act first</div>
+          <div class="trio-body">
+            High-volatility buildings and “watchlist” communities become visible on one page.
+            From there, operators can prioritize pilots, portfolio segmentation, and follow-up analysis by risk band.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© <span id="year"></span> VOL Health™ – StaffHealth + Accushield Verified. All rights reserved.</div>
+
+      <div class="footer-small">
+        Prototype model for directional portfolio diagnostics. Not a survey, audit, or formal actuarial opinion.
+        Results are illustrative and for strategic discussion only.
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

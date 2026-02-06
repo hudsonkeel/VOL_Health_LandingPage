@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
-      --brand-blue:#1f57b8;
-      --brand-green:#2e8b57;
+      --brand-blue:#1f57b8;        /* StaffHealth blue */
+      --brand-green:#2e8b57;       /* Accushield Verified green */
       --brand-yellow:#f2b705;
       --dark:#050814;
       --bg:#050816;
@@ -16,7 +16,6 @@
       --border:#242944;
       --danger:#df4759;
     }
-
     *{
       box-sizing:border-box;
       margin:0;
@@ -24,32 +23,36 @@
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
 
+    /* Softer outer background so logo pops */
     body{
-      background:#2f333b;
+      background:#1b1f2f;
       color:#f5f6ff;
     }
+    a{text-decoration:none;color:inherit;}
 
     .page{
       max-width:1080px;
-      margin:26px auto 46px;
-      padding:24px 20px 40px;
-      background:radial-gradient(circle at top,#101735 0,#050816 55%,#02030a 100%);
-      border-radius:24px;
-      box-shadow:
-        0 26px 64px rgba(0,0,0,0.9),
-        0 0 0 1px rgba(24,36,72,0.8);
+      margin:0 auto;
+      padding:20px 16px 48px;
+      border-radius:26px;
+      background:radial-gradient(
+        circle at top,
+        #1a2338 0%,
+        #111829 55%,
+        #0c1220 100%
+      );
+      box-shadow:0 22px 80px rgba(0,0,0,0.7);
     }
 
-    /* ------------------------ */
-    /*        HEADER            */
-    /* ------------------------ */
+    /* HEADER + NAV (centered) */
 
     header{
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      padding:20px 0 28px;
+      gap:12px;
+      padding:22px 0 18px;
       text-align:center;
     }
 
@@ -57,43 +60,30 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
-      gap:10px;
-      margin-bottom:12px;
+      gap:8px;
     }
 
+    .logo-mark{
+      flex-shrink:0;
+    }
     .logo-mark img{
-      height:92px;   /* bigger + centered */
+      height:88px;       /* adjust up/down if you want bigger/smaller */
       width:auto;
       display:block;
-      margin:0 auto;
     }
 
-    .logo-text{
-      font-size:22px;
-      font-weight:800;
-      color:#ffffff;
-      letter-spacing:1.2px;
-      margin-top:4px;
-      text-transform:uppercase;
-    }
-
-    /* centered nav */
     nav{
-      margin-top:16px;
       display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      font-size:14px;
+      gap:24px;
+      font-size:12px;
       text-transform:uppercase;
-      letter-spacing:0.10em;
+      letter-spacing:0.09em;
       color:#c4cae8;
+      justify-content:center;
+      flex-wrap:wrap;
     }
     nav a{
       opacity:0.85;
-      cursor:pointer;
     }
     nav a:hover{
       opacity:1;
@@ -105,51 +95,38 @@
       display:inline-flex;
       align-items:center;
       gap:6px;
-      background:rgba(46,139,87,0.16);
+      background:rgba(46,139,87,0.14);
       border-radius:999px;
       padding:4px 10px;
-      border:1px solid rgba(46,139,87,0.65);
+      border:1px solid rgba(46,139,87,0.6);
       font-size:11px;
       color:#c0f4d4;
       margin-bottom:10px;
     }
-    .badge-pill span{
-      font-size:15px;
-      color:#7bffb1;
-    }
+    .badge-pill span{font-size:15px;color:#7bffb1;}
 
     .hero{
       display:grid;
       gap:26px;
-      margin-top:8px;
+      margin-top:12px;
       align-items:center;
     }
-
     @media(min-width:880px){
-      .hero{
-        grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
-      }
+      .hero{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);}
     }
-
     .hero h1{
       font-size:30px;
       line-height:1.12;
       letter-spacing:0.02em;
       margin-bottom:10px;
-      text-align:left;
     }
-
-    .hero h1 span{
-      color:var(--brand-blue);
-    }
-
+    .hero h1 span{color:var(--brand-blue);}
     .hero p{
       color:#d5daf5;
       font-size:14.5px;
       line-height:1.55;
       max-width:540px;
     }
-
     .hero-cta{
       display:flex;
       flex-wrap:wrap;
@@ -176,7 +153,6 @@
       transform:translateY(-1px);
       box-shadow:0 14px 36px rgba(2,12,54,0.85);
     }
-
     .btn-ghost{
       background:transparent;
       color:#d5daf5;
@@ -190,10 +166,7 @@
       text-transform:uppercase;
       letter-spacing:0.08em;
     }
-    .btn-ghost span{
-      font-size:16px;
-      line-height:0;
-    }
+    .btn-ghost span{font-size:16px;line-height:0;}
 
     /* POWERED BY ROW */
 
@@ -206,25 +179,25 @@
       font-size:11px;
       color:#a6acce;
     }
-
     .logo-row img{
       height:40px;
       width:auto;
       object-fit:contain;
       background:none;
       padding:0;
+      border-radius:0;
+      box-shadow:none;
     }
 
     /* HERO SNAPSHOT CARD */
 
     .hero-card{
-      background:var(--card);
+      background:radial-gradient(circle at top,#1c2245 0,#0b1020 50%,#050814 100%);
       border-radius:18px;
       padding:16px 16px 14px;
-      border:1px solid var(--border);
-      box-shadow:0 18px 40px rgba(0,0,0,0.85);
+      border:1px solid rgba(72,86,155,0.8);
+      box-shadow:0 14px 40px rgba(2,5,20,0.9);
     }
-
     .hero-card-title{
       font-size:12px;
       text-transform:uppercase;
@@ -232,9 +205,7 @@
       color:#c4cae8;
       margin-bottom:10px;
     }
-
     .hero-gauge{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
-
     .gauge-bar{
       height:10px;
       border-radius:999px;
@@ -242,7 +213,6 @@
       position:relative;
       overflow:hidden;
     }
-
     .gauge-needle{
       position:absolute;
       top:-4px;
@@ -251,9 +221,7 @@
       background:#fff;
       border-radius:999px;
       left:62%;
-      box-shadow:0 0 10px rgba(255,255,255,0.9);
     }
-
     .gauge-labels{
       display:flex;
       justify-content:space-between;
@@ -262,21 +230,18 @@
     }
     .gauge-labels span:first-child{color:#7ce9b4;}
     .gauge-labels span:last-child{color:#ff9ba8;}
-
     .hero-metrics{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:10px;
       margin-top:10px;
     }
-
     .metric-pill{
-      background:#080f26;
+      background:rgba(12,13,32,0.9);
       border-radius:12px;
-      border:1px solid #222b52;
+      border:1px solid #252b49;
       padding:8px 9px;
     }
-
     .metric-label{
       font-size:10px;
       text-transform:uppercase;
@@ -284,11 +249,10 @@
       color:#aab2dd;
       margin-bottom:2px;
     }
-
     .metric-value{font-size:15px;font-weight:900;}
     .metric-sub{font-size:11px;color:#b7bddf;margin-top:1px;}
 
-    /* SECTION STYLES */
+    /* SECTIONS */
 
     .section{margin-top:34px;}
     .section h2{font-size:18px;margin-bottom:6px;}
@@ -308,7 +272,6 @@
       border-radius:14px;
       border:1px solid var(--border);
       padding:12px 12px 13px;
-      box-shadow:0 12px 28px rgba(0,0,0,0.7);
     }
     .trio-tag{
       font-size:10px;
@@ -329,8 +292,7 @@
       border-radius:16px;
       padding:12px 11px 14px;
       border:1px solid rgba(25,31,72,0.95);
-      background:#070e22;
-      box-shadow:0 14px 32px rgba(0,0,0,0.75);
+      background:linear-gradient(145deg,rgba(3,11,32,0.98),rgba(9,16,45,0.98));
     }
     .dash-label{
       font-size:11px;
@@ -393,25 +355,17 @@
       gap:10px;
       justify-content:space-between;
     }
-    .footer-small{
-      font-size:10px;
-      color:#686f97;
-      max-width:420px;
-    }
-
+    .footer-small{font-size:10px;color:#686f97;max-width:420px;}
   </style>
 </head>
-
 <body>
   <div class="page">
-
-    <!-- NEW CENTERED HEADER -->
     <header>
       <div class="logo-wrap">
         <div class="logo-mark">
+          <!-- Header VOL Health logo -->
           <img src="vol-health-logo.png" alt="VOL Health logo">
         </div>
-        <div class="logo-text">VOL HEALTH™</div>
       </div>
 
       <nav>
@@ -421,18 +375,15 @@
       </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
       <div>
         <div class="badge-pill">
           <span>●</span> The Trinity of Volatility, Operations & Labor
         </div>
-
         <h1>
           StaffHealth + Accushield Verified<br/>
           <span>= VOL Health™ Volatility Index</span>
         </h1>
-
         <p>
           VOL Health™ translates volatility into a simple stability score so senior living
           operators can see, in minutes, where census swings, overtime, PBJ exposure, and
@@ -441,10 +392,9 @@
         </p>
 
         <div class="hero-cta">
-          <a href="https://hudsonkeel.github.io/vol-health-index/calculator.html">
+          <a href="https://hudsonkeel.github.io/vol-health-index/">
             <button class="btn-primary">Launch VOL Health™ Index</button>
           </a>
-
           <a href="#how-it-works" class="btn-ghost">
             <span>↓</span> How the model works
           </a>
@@ -452,31 +402,28 @@
 
         <div class="logo-row">
           <span>Powered by:</span>
-          <img src="sh-av-logo.png" alt="StaffHealth + Accushield Verified">
+          <img src="sh-av-logo.png"
+               alt="StaffHealth + Accushield Verified">
         </div>
       </div>
 
       <aside class="hero-card" aria-label="Sample VOL Health snapshot">
         <div class="hero-card-title">Sample VOL Health™ Snapshot</div>
-
         <div class="hero-gauge">
           <div class="gauge-bar">
             <div class="gauge-needle"></div>
           </div>
-
           <div class="gauge-labels">
             <span>Low volatility</span>
             <span>High volatility</span>
           </div>
         </div>
-
         <div class="hero-metrics">
           <div class="metric-pill">
             <div class="metric-label">Stability score</div>
             <div class="metric-value">62 / 100</div>
             <div class="metric-sub">Moderate stability – early warning zone.</div>
           </div>
-
           <div class="metric-pill">
             <div class="metric-label">Annual economics at stake</div>
             <div class="metric-value">$480k – $960k</div>
@@ -486,7 +433,6 @@
       </aside>
     </section>
 
-    <!-- SECTION 1 -->
     <section class="section" id="trinity">
       <h2>The Trinity of Volatility, Operations & Labor</h2>
       <p class="lead">
@@ -495,7 +441,6 @@
       </p>
 
       <div class="pill-grid">
-
         <div class="trio-pill">
           <div class="trio-tag">Pillar 1</div>
           <div class="trio-title">Volatility <span>(census, acuity, PBJ, survey risk)</span></div>
@@ -522,11 +467,9 @@
             traditional staffing approaches have become a volatility engine instead of a safety net.
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION 2 -->
     <section class="section" id="dashboards">
       <h2>Three Stability Views at a Glance</h2>
       <p class="lead">
@@ -535,7 +478,6 @@
       </p>
 
       <div class="dash-grid">
-
         <article class="dash-card">
           <div class="dash-label">Dashboard skin</div>
           <div class="dash-title">Low Stability Risk</div>
@@ -574,11 +516,9 @@
             Here, the question isn’t “Should we do something?” – it’s “What’s the fastest, safest way to reduce downside risk?”
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- SECTION 3 -->
     <section class="section" id="how-it-works">
       <h2>How VOL Health™ Works with StaffHealth + Accushield Verified</h2>
       <p class="lead">
@@ -587,7 +527,6 @@
       </p>
 
       <div class="pill-grid">
-
         <div class="trio-pill">
           <div class="trio-tag">Step 1</div>
           <div class="trio-title">Score today’s volatility</div>
@@ -596,7 +535,6 @@
             leadership bandwidth, partner model, and reimbursement pressure for a single community or a full portfolio.
           </div>
         </div>
-
         <div class="trio-pill">
           <div class="trio-tag">Step 2</div>
           <div class="trio-title">Model elasticity impact</div>
@@ -605,7 +543,6 @@
             The model converts that choice into stability points gained and a directional annual economic range.
           </div>
         </div>
-
         <div class="trio-pill">
           <div class="trio-tag">Step 3</div>
           <div class="trio-title">Decide where to act first</div>
@@ -614,25 +551,20 @@
             From there, operators can prioritize pilots, portfolio segmentation, and follow-up analysis by risk band.
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div>© <span id="year"></span> VOL Health™ – StaffHealth + Accushield Verified. All rights reserved.</div>
-
       <div class="footer-small">
         Prototype model for directional portfolio diagnostics. Not a survey, audit, or formal actuarial opinion.
         Results are illustrative and for strategic discussion only.
       </div>
     </footer>
-
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>

@@ -23,7 +23,7 @@
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
 
-    /* Softer outer background so logo pops */
+    /* Outer background + card shell (match calculator feel) */
     body{
       background:#1b1f2f;
       color:#f5f6ff;
@@ -44,7 +44,7 @@
       box-shadow:0 22px 80px rgba(0,0,0,0.7);
     }
 
-    /* HEADER + NAV (centered) */
+    /* HEADER + NAV */
 
     header{
       display:flex;
@@ -63,11 +63,8 @@
       gap:8px;
     }
 
-    .logo-mark{
-      flex-shrink:0;
-    }
     .logo-mark img{
-      height:88px;       /* adjust up/down if you want bigger/smaller */
+      height:88px;
       width:auto;
       display:block;
     }
@@ -84,6 +81,7 @@
     }
     nav a{
       opacity:0.85;
+      cursor:pointer;
     }
     nav a:hover{
       opacity:1;
@@ -114,6 +112,7 @@
     @media(min-width:880px){
       .hero{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);}
     }
+
     .hero h1{
       font-size:30px;
       line-height:1.12;
@@ -121,12 +120,14 @@
       margin-bottom:10px;
     }
     .hero h1 span{color:var(--brand-blue);}
+
     .hero p{
       color:#d5daf5;
       font-size:14.5px;
       line-height:1.55;
       max-width:540px;
     }
+
     .hero-cta{
       display:flex;
       flex-wrap:wrap;
@@ -153,6 +154,7 @@
       transform:translateY(-1px);
       box-shadow:0 14px 36px rgba(2,12,54,0.85);
     }
+
     .btn-ghost{
       background:transparent;
       color:#d5daf5;
@@ -230,6 +232,7 @@
     }
     .gauge-labels span:first-child{color:#7ce9b4;}
     .gauge-labels span:last-child{color:#ff9ba8;}
+
     .hero-metrics{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -252,10 +255,15 @@
     .metric-value{font-size:15px;font-weight:900;}
     .metric-sub{font-size:11px;color:#b7bddf;margin-top:1px;}
 
-    /* SECTIONS */
+    /* GENERIC SECTION STYLES */
 
-    .section{margin-top:34px;}
-    .section h2{font-size:18px;margin-bottom:6px;}
+    .section{
+      margin-top:34px;
+    }
+    .section h2{
+      font-size:18px;
+      margin-bottom:6px;
+    }
     .section p.lead{
       font-size:13.5px;
       color:#c4cae8;
@@ -263,86 +271,150 @@
       margin-bottom:14px;
     }
 
-    .pill-grid{display:grid;gap:14px;}
-    @media(min-width:800px){
-      .pill-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    /* SPECIAL CASE: THREE-BEAT NARRATIVE LINE */
+    .narrative-lead{
+      max-width:none;
     }
-    .trio-pill{
+
+    @media (min-width:900px){
+      .narrative-lead{
+        white-space:nowrap;   /* keep on one line on desktop */
+      }
+    }
+
+    /* THREE-BEAT STORY STRIP */
+
+    .beats-grid{
+      display:grid;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media(min-width:780px){
+      .beats-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+    .beat-card{
       background:var(--card);
       border-radius:14px;
       border:1px solid var(--border);
       padding:12px 12px 13px;
+      font-size:12px;
+      color:#d0d4ef;
+      line-height:1.5;
     }
-    .trio-tag{
+
+    /* VOL-style tags */
+
+    .beat-tag{
+      display:flex;
+      align-items:center;
+      gap:6px;
       font-size:10px;
       text-transform:uppercase;
       letter-spacing:0.14em;
       color:#9fa6d8;
       margin-bottom:4px;
     }
-    .trio-title{font-size:13.5px;font-weight:800;margin-bottom:4px;}
-    .trio-title span{font-size:11px;font-weight:600;color:var(--muted);}
-    .trio-body{font-size:12px;color:#d0d4ef;line-height:1.5;}
 
-    .dash-grid{display:grid;gap:14px;}
-    @media(min-width:880px){
-      .dash-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
-    }
-    .dash-card{
-      border-radius:16px;
-      padding:12px 11px 14px;
-      border:1px solid rgba(25,31,72,0.95);
-      background:linear-gradient(145deg,rgba(3,11,32,0.98),rgba(9,16,45,0.98));
-    }
-    .dash-label{
+    .beat-initial{
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      border:1px solid #4b5290;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      color:#a6acce;
+      font-weight:700;
+      color:#f5f6ff;
+      flex-shrink:0;
+      background:radial-gradient(circle at 30% 0, var(--brand-blue) 0, #050814 70%);
+    }
+
+    .beat-title{
+      font-size:13.5px;
+      font-weight:800;
       margin-bottom:4px;
     }
-    .dash-title{font-size:13.5px;font-weight:800;margin-bottom:6px;}
-    .dash-chip{
-      display:inline-flex;
+
+    /* HOW IT WORKS (ULTRA SIMPLE) */
+
+    .steps-grid{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      font-size:12px;
+      color:#d0d4ef;
+    }
+    @media(min-width:680px){
+      .steps-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+    .step-line{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+    }
+    .step-badge{
+      width:20px;
+      height:20px;
+      border-radius:999px;
+      border:1px solid #3a4270;
+      display:flex;
       align-items:center;
-      gap:6px;
+      justify-content:center;
       font-size:11px;
-      border-radius:999px;
-      padding:3px 8px;
-      margin-bottom:6px;
+      color:#c4cae8;
+      flex-shrink:0;
+      margin-top:1px;
     }
-    .dash-chip.low{
-      background:rgba(31,149,114,0.15);
-      color:#7ce9b4;
-      border:1px solid rgba(31,149,114,0.6);
+    .step-text{
+      line-height:1.5;
     }
-    .dash-chip.med{
-      background:rgba(242,183,5,0.12);
-      color:#ffe6a6;
-      border:1px solid rgba(242,183,5,0.6);
+
+    /* DEEP DIVE SUMMARY */
+
+    details{
+      margin-top:22px;
+      background:rgba(5,8,20,0.85);
+      border-radius:14px;
+      border:1px solid #242944;
+      padding:10px 12px 12px;
     }
-    .dash-chip.high{
-      background:rgba(223,71,89,0.12);
-      color:#ffc3c7;
-      border:1px solid rgba(223,71,89,0.7);
+    summary{
+      cursor:pointer;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#c4cae8;
+      list-style:none;
     }
-    .dash-chip span{font-size:14px;}
-    .dash-gauge{
-      height:8px;
-      border-radius:999px;
-      overflow:hidden;
-      background:rgba(12,14,38,0.9);
-      margin-bottom:6px;
-      position:relative;
+    summary::-webkit-details-marker{
+      display:none;
     }
-    .dash-gauge-fill{
-      height:100%;
-      background:linear-gradient(90deg,var(--brand-green),var(--brand-yellow),#df4759);
+    .summary-row{
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
-    .dash-gauge.low .dash-gauge-fill{width:28%;}
-    .dash-gauge.med .dash-gauge-fill{width:58%;}
-    .dash-gauge.high .dash-gauge-fill{width:86%;}
-    .dash-text{font-size:11.5px;color:#d0d4ef;line-height:1.5;}
+    .summary-icon{
+      font-size:16px;
+    }
+    details[open] summary{
+      margin-bottom:8px;
+    }
+    .deep-body{
+      font-size:12px;
+      color:#d0d4ef;
+      line-height:1.5;
+    }
+    .deep-body p{
+      margin-bottom:8px;
+    }
+
+    /* FOOTER */
 
     footer{
       margin-top:40px;
@@ -355,49 +427,70 @@
       gap:10px;
       justify-content:space-between;
     }
-    .footer-small{font-size:10px;color:#686f97;max-width:420px;}
+    .footer-small{
+      font-size:10px;
+      color:#686f97;
+      max-width:420px;
+    }
+
+    /* MOBILE TUNING */
+    @media (max-width:720px){
+      .hero{
+        gap:18px;
+      }
+      .hero h1{
+        font-size:24px;
+      }
+      .hero p{
+        font-size:13px;
+      }
+      /* allow normal wrapping on small screens */
+      .narrative-lead{
+        white-space:normal;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page">
+    <!-- HEADER -->
     <header>
       <div class="logo-wrap">
         <div class="logo-mark">
-          <!-- Header VOL Health logo -->
           <img src="vol-health-logo.png" alt="VOL Health logo">
         </div>
       </div>
 
       <nav>
-        <a href="#trinity">Trinity</a>
-        <a href="#dashboards">Dashboards</a>
+        <a href="#beats">Why VOL Health</a>
         <a href="#how-it-works">How It Works</a>
+        <a href="#details">Details</a>
       </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
       <div>
         <div class="badge-pill">
           <span>●</span> The Trinity of Volatility, Operations & Labor
         </div>
+
         <h1>
-          StaffHealth + Accushield Verified<br/>
-          <span>= VOL Health™ Volatility Index</span>
+          Make staffing volatility<br/>
+          <span>visible in one score.</span>
         </h1>
         <p>
-          VOL Health™ translates volatility into a simple stability score so senior living
-          operators can see, in minutes, where census swings, overtime, PBJ exposure, and
-          survey risk are silently draining value — and where a verified elasticity layer
-          can give it back.
+          VOL Health™ shows senior living operators <b>where they stand today</b> and
+          <b>what volatility is costing them</b> – in a single stability score and an
+          illustrative economic range.
         </p>
 
         <div class="hero-cta">
           <a href="https://hudsonkeel.github.io/vol-health-index/calculator.html">
-  <button class="btn-primary">Launch VOL Health™ Index</button>
-</a>
-
-          <a href="#how-it-works" class="btn-ghost">
-            <span>↓</span> How the model works
+            <button class="btn-primary">Launch VOL Health™ Index</button>
+          </a>
+          <a href="#details" class="btn-ghost">
+            <span>↓</span> See full story
           </a>
         </div>
 
@@ -423,7 +516,7 @@
           <div class="metric-pill">
             <div class="metric-label">Stability score</div>
             <div class="metric-value">62 / 100</div>
-            <div class="metric-sub">Moderate stability – early warning zone.</div>
+            <div class="metric-sub">Mixed stability – early warning zone.</div>
           </div>
           <div class="metric-pill">
             <div class="metric-label">Annual economics at stake</div>
@@ -434,127 +527,124 @@
       </aside>
     </section>
 
-    <section class="section" id="trinity">
-      <h2>The Trinity of Volatility, Operations & Labor</h2>
-      <p class="lead">
-        VOL Health™ is a directional diagnostic, not a survey. It scores staffing “health” across ten volatility drivers
-        and ties them back to the three forces every operator feels daily: volatility, operations, and labor.
+    <!-- THREE-BEAT STORY: UNDERSTAND → COST → VALUE -->
+    <section class="section" id="beats">
+      <h2>A simple way to see what volatility is really doing to you</h2>
+      <p class="lead narrative-lead">
+        VOL Health™ is built around one narrative: <b>understand your situation, see the cost of volatility, and decide how to stabilize it</b>.
       </p>
 
-      <div class="pill-grid">
-        <div class="trio-pill">
-          <div class="trio-tag">Pillar 1</div>
-          <div class="trio-title">Volatility <span>(census, acuity, PBJ, survey risk)</span></div>
-          <div class="trio-body">
-            Where are census swings, acuity spikes, and documentation gaps creating unpredictable pressure on the building?
-            VOL Health surfaces where variability is quietly turning into regulatory and financial risk.
+      <div class="beats-grid">
+        <div class="beat-card">
+          <div class="beat-tag">
+            <span class="beat-initial">V</span>
+            <span>Volatility · Understand your situation</span>
+          </div>
+          <div class="beat-title">See your current stability in one score</div>
+          <div>
+            Ten questions translate census swings, acuity shifts, OT, PBJ exposure, survey risk, leadership drag,
+            and partner sprawl into a single <b>0–100 stability score</b>.
           </div>
         </div>
 
-        <div class="trio-pill">
-          <div class="trio-tag">Pillar 2</div>
-          <div class="trio-title">Operations <span>(leadership bandwidth, reputation, liability)</span></div>
-          <div class="trio-body">
-            How much leadership time is being hijacked by staffing fires?
-            The model treats ED and DON bandwidth, incidents, and community reputation as operating assets – not afterthoughts.
+        <div class="beat-card">
+          <div class="beat-tag">
+            <span class="beat-initial">O</span>
+            <span>Operations · See the cost of volatility clearly</span>
+          </div>
+          <div class="beat-title">Put a directional dollar range around it</div>
+          <div>
+            The model pairs your stability score with an <b>illustrative annual economic range</b> influenced by volatility –
+            so you can see where volatility is quietly extracting real dollars.
           </div>
         </div>
 
-        <div class="trio-pill">
-          <div class="trio-tag">Pillar 3</div>
-          <div class="trio-title">Labor <span>(OT, call-outs, partner model)</span></div>
-          <div class="trio-body">
-            Overtime, call-outs, and partner sprawl are translated into a single stability view so operators can see when
-            traditional staffing approaches have become a volatility engine instead of a safety net.
+        <div class="beat-card">
+          <div class="beat-tag">
+            <span class="beat-initial">L</span>
+            <span>Labor · What we do to stabilize & deliver value</span>
+          </div>
+          <div class="beat-title">Layer in a verified elasticity model</div>
+          <div>
+            You choose how aggressively to use StaffHealth as an elasticity layer. VOL Health™ then estimates
+            <b>stability points gained</b> and an economic range a more stable model could help protect.
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="dashboards">
-      <h2>Three Stability Views at a Glance</h2>
-      <p class="lead">
-        Every run of VOL Health™ plots a building or portfolio into one of three directional bands. The goal isn’t a “perfect score” –
-        it’s a clear, shared language for where volatility is acceptable, emerging, or actively extracting value.
-      </p>
-
-      <div class="dash-grid">
-        <article class="dash-card">
-          <div class="dash-label">Dashboard skin</div>
-          <div class="dash-title">Low Stability Risk</div>
-          <div class="dash-chip low"><span>●</span> Low Volatility Zone</div>
-          <div class="dash-gauge low">
-            <div class="dash-gauge-fill"></div>
-          </div>
-          <div class="dash-text">
-            Stability scores in the 70–100 range. Volatility is present but managed: OT is contained, PBJ is clean, leadership is not
-            constantly pulled into staffing fires. Focus shifts to protecting this position as census and expectations evolve.
-          </div>
-        </article>
-
-        <article class="dash-card">
-          <div class="dash-label">Dashboard skin</div>
-          <div class="dash-title">Mixed Stability</div>
-          <div class="dash-chip med"><span>●</span> Watchlist Zone</div>
-          <div class="dash-gauge med">
-            <div class="dash-gauge-fill"></div>
-          </div>
-          <div class="dash-text">
-            Stability scores in the 40–69 range. Operations work, but OT, call-outs, or PBJ anxiety are quietly taxing the building.
-            A verified elasticity layer on weekends and pain shifts can pull this cohort back toward the green.
-          </div>
-        </article>
-
-        <article class="dash-card">
-          <div class="dash-label">Dashboard skin</div>
-          <div class="dash-title">High Volatility</div>
-          <div class="dash-chip high"><span>●</span> Red Flag Zone</div>
-          <div class="dash-gauge high">
-            <div class="dash-gauge-fill"></div>
-          </div>
-          <div class="dash-text">
-            Stability scores below 40. Volatility, survey exposure, and leadership burnout are likely extracting real dollars every month.
-            Here, the question isn’t “Should we do something?” – it’s “What’s the fastest, safest way to reduce downside risk?”
-          </div>
-        </article>
-      </div>
-    </section>
-
+    <!-- HOW IT WORKS – ULTRA SIMPLE -->
     <section class="section" id="how-it-works">
-      <h2>How VOL Health™ Works with StaffHealth + Accushield Verified</h2>
+      <h2>How VOL Health™ works in practice</h2>
       <p class="lead">
-        VOL Health™ doesn’t replace your staffing strategy – it quantifies where an elasticity layer would do the most good,
-        then links that stability gain to an illustrative economic range.
+        Under the hood the math is thoughtful. On the surface, it’s three simple steps.
       </p>
 
-      <div class="pill-grid">
-        <div class="trio-pill">
-          <div class="trio-tag">Step 1</div>
-          <div class="trio-title">Score today’s volatility</div>
-          <div class="trio-body">
-            In ten questions, VOL Health™ captures census, acuity, OT, PBJ confidence, survey risk, incidents, reputation,
-            leadership bandwidth, partner model, and reimbursement pressure for a single community or a full portfolio.
+      <div class="steps-grid">
+        <div class="step-line">
+          <div class="step-badge">1</div>
+          <div class="step-text">
+            <b>Run the index.</b><br/>
+            Answer ten questions for a single building or estimate distributions across a portfolio.
           </div>
         </div>
-        <div class="trio-pill">
-          <div class="trio-tag">Step 2</div>
-          <div class="trio-title">Model elasticity impact</div>
-          <div class="trio-body">
-            You choose how aggressively to deploy StaffHealth as an elasticity layer – conservative, moderate, or strategic.
-            The model converts that choice into stability points gained and a directional annual economic range.
+
+        <div class="step-line">
+          <div class="step-badge">2</div>
+          <div class="step-text">
+            <b>Review the score & dollars.</b><br/>
+            See your VOL Health™ stability score and a directional annual economic range influenced by volatility.
           </div>
         </div>
-        <div class="trio-pill">
-          <div class="trio-tag">Step 3</div>
-          <div class="trio-title">Decide where to act first</div>
-          <div class="trio-body">
-            High-volatility buildings and “watchlist” communities become visible on one page.
-            From there, operators can prioritize pilots, portfolio segmentation, and follow-up analysis by risk band.
+
+        <div class="step-line">
+          <div class="step-badge">3</div>
+          <div class="step-text">
+            <b>Decide where to act first.</b><br/>
+            Use zones and economics to prioritize pilots, conversations, and portfolio focus areas.
           </div>
         </div>
       </div>
     </section>
 
+    <!-- DETAILS / FULL STORY (COLLAPSED) -->
+    <section class="section" id="details">
+      <details>
+        <summary>
+          <div class="summary-row">
+            <span class="summary-icon">➤</span>
+            <span>See full VOL Health™ story & rationale</span>
+          </div>
+        </summary>
+        <div class="deep-body">
+          <p>
+            VOL Health™ is a directional diagnostic, not a survey or audit. It’s designed to give operators a fast,
+            shared language for how volatility, operations, and labor interact in real buildings under real pressure.
+          </p>
+          <p>
+            The engine looks at ten drivers – including census patterns, acuity shifts, OT burden, call-outs,
+            PBJ confidence, survey risk, incidents, reputation, leadership bandwidth, partner model, and reimbursement
+            pressure for SNF/PDPM beds – and converts them into a single stability score.
+          </p>
+          <p>
+            Scores trend into three zones: green (higher stability), yellow (mixed stability / watchlist),
+            and red (high volatility). The point is not a “perfect” number – it’s visibility and language:
+            where volatility is acceptable, where it’s emerging, and where it’s actively extracting value.
+          </p>
+          <p>
+            The model then pairs that stability signal with an illustrative annual economic range influenced by volatility.
+            This isn’t formal actuarial work – it’s a directional way to anchor conversations about where volatility,
+            survey exposure, and leadership drag may already be costing more than a structured, verified elasticity layer.
+          </p>
+          <p>
+            In portfolio mode, operators can estimate how many communities sit in each option for each question to create
+            an average per-community view and a portfolio roll-up – without running the tool one building at a time.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
       <div>© <span id="year"></span> VOL Health™ – StaffHealth + Accushield Verified. All rights reserved.</div>
       <div class="footer-small">

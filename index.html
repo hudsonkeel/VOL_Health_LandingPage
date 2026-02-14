@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
-      --brand-blue:#1f57b8;        /* StaffHealth blue */
-      --brand-green:#2e8b57;       /* Accushield Verified green */
+      --brand-blue:#1f57b8;
+      --brand-green:#2e8b57;
       --brand-yellow:#f2b705;
       --dark:#050814;
       --bg:#050816;
@@ -23,7 +23,6 @@
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
 
-    /* Outer background + card shell (match calculator feel) */
     body{
       background:#1b1f2f;
       color:#f5f6ff;
@@ -35,16 +34,9 @@
       margin:0 auto;
       padding:20px 16px 48px;
       border-radius:26px;
-      background:radial-gradient(
-        circle at top,
-        #1a2338 0%,
-        #111829 55%,
-        #0c1220 100%
-      );
+      background:radial-gradient(circle at top,#1a2338 0%,#111829 55%,#0c1220 100%);
       box-shadow:0 22px 80px rgba(0,0,0,0.7);
     }
-
-    /* HEADER + NAV */
 
     header{
       display:flex;
@@ -55,14 +47,12 @@
       padding:22px 0 18px;
       text-align:center;
     }
-
     .logo-wrap{
       display:flex;
       flex-direction:column;
       align-items:center;
       gap:8px;
     }
-
     .logo-mark img{
       height:88px;
       width:auto;
@@ -79,15 +69,8 @@
       justify-content:center;
       flex-wrap:wrap;
     }
-    nav a{
-      opacity:0.85;
-      cursor:pointer;
-    }
-    nav a:hover{
-      opacity:1;
-    }
-
-    /* HERO + BADGE */
+    nav a{opacity:0.85;cursor:pointer;}
+    nav a:hover{opacity:1;}
 
     .badge-pill{
       display:inline-flex;
@@ -170,8 +153,6 @@
     }
     .btn-ghost span{font-size:16px;line-height:0;}
 
-    /* POWERED BY ROW */
-
     .logo-row{
       display:flex;
       flex-wrap:wrap;
@@ -190,8 +171,6 @@
       border-radius:0;
       box-shadow:none;
     }
-
-    /* HERO SNAPSHOT CARD */
 
     .hero-card{
       background:radial-gradient(circle at top,#1c2245 0,#0b1020 50%,#050814 100%);
@@ -255,15 +234,8 @@
     .metric-value{font-size:15px;font-weight:900;}
     .metric-sub{font-size:11px;color:#b7bddf;margin-top:1px;}
 
-    /* GENERIC SECTION STYLES */
-
-    .section{
-      margin-top:34px;
-    }
-    .section h2{
-      font-size:18px;
-      margin-bottom:6px;
-    }
+    .section{margin-top:34px;}
+    .section h2{font-size:18px;margin-bottom:6px;}
     .section p.lead{
       font-size:13.5px;
       color:#c4cae8;
@@ -271,18 +243,10 @@
       margin-bottom:14px;
     }
 
-    /* SPECIAL CASE: THREE-BEAT NARRATIVE LINE */
-    .narrative-lead{
-      max-width:none;
-    }
-
+    .narrative-lead{max-width:none;}
     @media (min-width:900px){
-      .narrative-lead{
-        white-space:nowrap;   /* keep on one line on desktop */
-      }
+      .narrative-lead{white-space:nowrap;}
     }
-
-    /* THREE-BEAT STORY STRIP */
 
     .beats-grid{
       display:grid;
@@ -290,9 +254,7 @@
       margin-top:14px;
     }
     @media(min-width:780px){
-      .beats-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
+      .beats-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
     }
     .beat-card{
       background:var(--card);
@@ -303,8 +265,6 @@
       color:#d0d4ef;
       line-height:1.5;
     }
-
-    /* VOL-style tags */
 
     .beat-tag{
       display:flex;
@@ -338,52 +298,15 @@
       margin-bottom:4px;
     }
 
-    /* HOW IT WORKS (ULTRA SIMPLE) */
-
-    .steps-grid{
-      display:grid;
-      gap:10px;
-      margin-top:10px;
-      font-size:12px;
-      color:#d0d4ef;
-    }
-    @media(min-width:680px){
-      .steps-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
-    }
-    .step-line{
-      display:flex;
-      gap:8px;
-      align-items:flex-start;
-    }
-    .step-badge{
-      width:20px;
-      height:20px;
-      border-radius:999px;
-      border:1px solid #3a4270;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:11px;
-      color:#c4cae8;
-      flex-shrink:0;
-      margin-top:1px;
-    }
-    .step-text{
-      line-height:1.5;
-    }
-
-    /* DEEP DIVE SUMMARY */
-
-    details{
+    /* EXPANDERS */
+    .expander{
       margin-top:22px;
       background:rgba(5,8,20,0.85);
       border-radius:14px;
       border:1px solid #242944;
       padding:10px 12px 12px;
     }
-    summary{
+    .expander summary{
       cursor:pointer;
       font-size:12px;
       text-transform:uppercase;
@@ -391,30 +314,38 @@
       color:#c4cae8;
       list-style:none;
     }
-    summary::-webkit-details-marker{
-      display:none;
-    }
+    .expander summary::-webkit-details-marker{display:none;}
+
     .summary-row{
       display:flex;
       align-items:center;
       gap:8px;
+      padding:2px 0;
+      transition:filter 0.12s ease;
     }
+    .expander summary:hover .summary-row{filter:brightness(1.08);}
+
     .summary-icon{
       font-size:16px;
+      display:inline-block;
+      transition:transform 0.16s ease;
+      transform:rotate(0deg);
     }
-    details[open] summary{
-      margin-bottom:8px;
-    }
-    .deep-body{
-      font-size:12px;
-      color:#d0d4ef;
-      line-height:1.5;
-    }
-    .deep-body p{
-      margin-bottom:8px;
-    }
+    .expander[open] .summary-icon{transform:rotate(90deg);}
+    .expander[open] summary{margin-bottom:10px;}
+    .expander-body{padding-top:0;}
+    .expander-body .section{margin-top:0;}
 
-    /* FOOTER */
+    /* DETAILS: tighter text inside cards */
+    .detail-copy{
+      color:#d0d4ef;
+    }
+    .detail-copy p{
+      margin:0 0 8px 0;
+    }
+    .detail-copy p:last-child{
+      margin-bottom:0;
+    }
 
     footer{
       margin-top:40px;
@@ -433,21 +364,11 @@
       max-width:420px;
     }
 
-    /* MOBILE TUNING */
     @media (max-width:720px){
-      .hero{
-        gap:18px;
-      }
-      .hero h1{
-        font-size:24px;
-      }
-      .hero p{
-        font-size:13px;
-      }
-      /* allow normal wrapping on small screens */
-      .narrative-lead{
-        white-space:normal;
-      }
+      .hero{gap:18px;}
+      .hero h1{font-size:24px;}
+      .hero p{font-size:13px;}
+      .narrative-lead{white-space:normal;}
     }
   </style>
 </head>
@@ -480,23 +401,23 @@
           <span>visible in one score.</span>
         </h1>
         <p>
-  VOL Health™ shows senior living operators <b>how endemic volatility is impacting their buildings</b> and
-  <b>where it’s stressing operations</b> – in a single stability score and an
-  illustrative economic range tied to labor strain.
-</p>
+          VOL Health™ shows senior living operators <b>how endemic volatility is impacting their buildings</b> and
+          <b>where it’s stressing operations</b> – in a single stability score and an
+          illustrative economic range tied to labor strain.
+        </p>
+
         <div class="hero-cta">
           <a href="https://hudsonkeel.github.io/vol-health-index/calculator.html">
             <button class="btn-primary">Launch VOL Health™ Index</button>
           </a>
-          <a href="#details" class="btn-ghost">
+          <a href="#beats" class="btn-ghost">
             <span>↓</span> See full story
           </a>
         </div>
 
         <div class="logo-row">
           <span>Powered by:</span>
-          <img src="sh-av-logo.png"
-               alt="StaffHealth + Accushield Verified">
+          <img src="sh-av-logo.png" alt="StaffHealth + Accushield Verified">
         </div>
       </div>
 
@@ -526,138 +447,193 @@
       </aside>
     </section>
 
-    <!-- THREE-BEAT STORY: UNDERSTAND → COST → VALUE -->
+    <!-- WHY VOL HEALTH -->
     <section class="section" id="beats">
-      <h2>A simple way to see what volatility is really doing to you</h2>
-      <p class="lead narrative-lead">
-        VOL Health™ is built around one narrative: <b>understand your situation, see the cost of volatility, and decide how to stabilize it</b>.
-      </p>
-
-      <div class="beats-grid">
-        <div class="beat-card">
-          <div class="beat-tag">
-            <span class="beat-initial">V</span>
-            <span>Volatility · Understand your situation</span>
-          </div>
-          <div class="beat-title">See your current stability in one score</div>
-          <div>
-            Ten questions translate census swings, acuity shifts, OT, PBJ exposure, survey risk, leadership drag,
-            and partner sprawl into a single <b>0–100 stability score</b>.
-          </div>
-        </div>
-
-        <div class="beat-card">
-          <div class="beat-tag">
-            <span class="beat-initial">O</span>
-            <span>Operations · See the cost of volatility clearly</span>
-          </div>
-          <div class="beat-title">Put a directional dollar range around it</div>
-          <div>
-            The model pairs your stability score with an <b>illustrative annual economic range</b> influenced by volatility –
-            so you can see where volatility is quietly extracting real dollars.
-          </div>
-        </div>
-
-        <div class="beat-card">
-          <div class="beat-tag">
-            <span class="beat-initial">L</span>
-            <span>Labor · How we help stabilize & deliver value</span>
-          </div>
-          <div class="beat-title">Layer in a verified elasticity model</div>
-          <div>
-            You choose how aggressively to use StaffHealth as an elasticity layer. VOL Health™ then estimates
-            <b>stability points gained</b> and an economic range a more stable model could help protect.
-          </div>
-        </div>
-      </div>
-    </section>
-
-       <!-- HOW IT WORKS – ULTRA SIMPLE -->
-    <section class="section" id="how-it-works">
-      <h2>How VOL Health™ works in practice</h2>
-      <p class="lead">
-        Under the hood the math is thoughtful. On the surface, it’s three simple steps.
-      </p>
-
-      <div class="beats-grid">
-        <!-- Step 1 -->
-        <div class="beat-card">
-          <div class="beat-tag">
-            <span class="beat-initial">V</span>
-            <span>Volatility · Understand your situation</span>
-          </div>
-          <div class="beat-title">Run the index.</div>
-          <div>
-            Answer ten questions for a single building or estimate distributions
-            across a portfolio.
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="beat-card">
-          <div class="beat-tag">
-            <span class="beat-initial">O</span>
-            <span>Operations · See the cost clearly</span>
-          </div>
-          <div class="beat-title">Review the score &amp; dollars.</div>
-          <div>
-            See your VOL Health™ stability score and a directional annual economic
-            range influenced by volatility.
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="beat-card">
-          <div class="beat-tag">
-            <span class="beat-initial">L</span>
-            <span>Labor · Stabilize &amp; deliver value</span>
-          </div>
-          <div class="beat-title">Decide where to act first.</div>
-          <div>
-            Use zones and economics to prioritize pilots, conversations, and
-            portfolio focus areas.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DETAILS / FULL STORY (COLLAPSED) -->
-    <section class="section" id="details">
-      <details>
+      <details class="expander">
         <summary>
           <div class="summary-row">
-            <span class="summary-icon">➤</span>
-            <span>Details: VOL Health™ story & rationale</span>
+            <span class="summary-icon">▸</span>
+            <span>Why VOL Health™</span>
           </div>
         </summary>
-        <div class="deep-body">
-          <p>
-            VOL Health™ is a directional diagnostic, not a survey or audit. It’s designed to give operators a fast,
-            shared language for how volatility, operations, and labor interact in real buildings under real pressure.
-          </p>
-          <p>
-            The engine looks at ten drivers – including census patterns, acuity shifts, OT burden, call-outs,
-            PBJ confidence, survey risk, incidents, reputation, leadership bandwidth, partner model, and reimbursement
-            pressure for SNF/PDPM beds – and converts them into a single stability score.
-          </p>
-          <p>
-            Scores trend into three zones: green (higher stability), yellow (mixed stability / watchlist),
-            and red (high volatility). The point is not a “perfect” number – it’s visibility and language:
-            where volatility is acceptable, where it’s emerging, and where it’s actively extracting value.
-          </p>
-          <p>
-            The model then pairs that stability signal with an illustrative annual economic range influenced by volatility.
-            This isn’t formal actuarial work – it’s a directional way to anchor conversations about where volatility,
-            survey exposure, and leadership drag may already be costing more than a structured, verified elasticity layer.
-          </p>
-          <p>
-            In portfolio mode, operators can estimate how many communities sit in each option for each question to create
-            an average per-community view and a portfolio roll-up – without running the tool one building at a time.
-          </p>
+
+        <div class="expander-body">
+          <div class="section">
+            <h2>A simple way to see what volatility is really doing to you</h2>
+            <p class="lead narrative-lead">
+              VOL Health™ is built around one narrative: <b>understand your situation, see the cost of volatility, and decide how to stabilize it</b>.
+            </p>
+
+            <div class="beats-grid">
+              <div class="beat-card">
+                <div class="beat-tag">
+                  <span class="beat-initial">V</span>
+                  <span>Volatility · Understand your situation</span>
+                </div>
+                <div class="beat-title">See your current stability in one score</div>
+                <div>
+                  Ten questions translate census swings, acuity shifts, OT, PBJ exposure, survey risk, leadership drag,
+                  and partner sprawl into a single <b>0–100 stability score</b>.
+                </div>
+              </div>
+
+              <div class="beat-card">
+                <div class="beat-tag">
+                  <span class="beat-initial">O</span>
+                  <span>Operations · See the cost of volatility clearly</span>
+                </div>
+                <div class="beat-title">Put a directional dollar range around it</div>
+                <div>
+                  The model pairs your stability score with an <b>illustrative annual economic range</b> influenced by volatility –
+                  so you can see where volatility is quietly extracting real dollars.
+                </div>
+              </div>
+
+              <div class="beat-card">
+                <div class="beat-tag">
+                  <span class="beat-initial">L</span>
+                  <span>Labor · How we help stabilize &amp; deliver value</span>
+                </div>
+                <div class="beat-title">Layer in a verified elasticity model</div>
+                <div>
+                  You choose how aggressively to use StaffHealth as an elasticity layer. VOL Health™ then estimates
+                  <b>stability points gained</b> and an economic range a more stable model could help protect.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
     </section>
 
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works">
+      <details class="expander">
+        <summary>
+          <div class="summary-row">
+            <span class="summary-icon">▸</span>
+            <span>How VOL Health™ works</span>
+          </div>
+        </summary>
+
+        <div class="expander-body">
+          <div class="section">
+            <h2>How VOL Health™ works in practice</h2>
+            <p class="lead">
+              Under the hood the math is thoughtful. On the surface, it’s three simple steps.
+            </p>
+
+            <div class="beats-grid">
+              <div class="beat-card">
+                <div class="beat-tag">
+                  <span class="beat-initial">V</span>
+                  <span>Volatility · Understand your situation</span>
+                </div>
+                <div class="beat-title">Run the index.</div>
+                <div>
+                  Answer ten questions for a single building or estimate distributions
+                  across a portfolio.
+                </div>
+              </div>
+
+              <div class="beat-card">
+                <div class="beat-tag">
+                  <span class="beat-initial">O</span>
+                  <span>Operations · See the cost clearly</span>
+                </div>
+                <div class="beat-title">Review the score &amp; dollars.</div>
+                <div>
+                  See your VOL Health™ stability score and a directional annual economic
+                  range influenced by volatility.
+                </div>
+              </div>
+
+              <div class="beat-card">
+                <div class="beat-tag">
+                  <span class="beat-initial">L</span>
+                  <span>Labor · Stabilize &amp; deliver value</span>
+                </div>
+                <div class="beat-title">Decide where to act first.</div>
+                <div>
+                  Use zones and economics to prioritize pilots, conversations, and
+                  portfolio focus areas.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+<!-- DETAILS (UNDER THE HOOD – 3 STRUCTURED BLOCKS) -->
+<section class="section" id="details">
+  <details class="expander">
+    <summary>
+      <div class="summary-row">
+        <span class="summary-icon">▸</span>
+        <span>Details</span>
+      </div>
+    </summary>
+
+    <div class="expander-body">
+      <div class="section">
+        <h2>Details</h2>
+        <p class="lead">
+          What’s actually under the hood.
+        </p>
+
+        <div class="beats-grid">
+
+          <!-- BLOCK 1 -->
+          <div class="beat-card">
+            <div class="beat-tag">
+              <span class="beat-initial">1</span>
+              <span>Model Structure</span>
+            </div>
+            <div class="beat-title">Weighted composite design</div>
+            <div>
+              VOL Health™ applies weighted inputs across ten volatility drivers to generate a composite stability score.
+              The framework was developed using structured modeling and AI-assisted scenario analysis to calibrate driver
+              weightings. Assumptions were intentionally conservative and informed by publicly observable industry patterns.
+              The output is directional by design — built to support strategic decisions, not replace formal financial modeling.
+            </div>
+          </div>
+
+          <!-- BLOCK 2 -->
+          <div class="beat-card">
+            <div class="beat-tag">
+              <span class="beat-initial">2</span>
+              <span>Economic Logic</span>
+            </div>
+            <div class="beat-title">Translating stability into dollars</div>
+            <div>
+              The stability score is paired with a modeled economic impact band tied to labor strain,
+              operational drag, compliance exposure, and reimbursement sensitivity. Rather than forecasting revenue,
+              the model estimates how volatility typically compounds across overtime, survey risk, leadership bandwidth,
+              and occupancy pressure. Ranges reflect conservative scenario assumptions — not best-case projections.
+            </div>
+          </div>
+
+          <!-- BLOCK 3 -->
+          <div class="beat-card">
+            <div class="beat-tag">
+              <span class="beat-initial">3</span>
+              <span>Portfolio Application</span>
+            </div>
+            <div class="beat-title">Designed for executive visibility</div>
+            <div>
+              In portfolio mode, operators can estimate distributions across communities instead of inputting buildings one
+              at a time. This allows leaders to see concentration of volatility risk across regions, acuity mixes,
+              and operating models. The objective is portfolio-level signal clarity and prioritization — not single-building precision.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </details>
+</section>
+
+    
     <!-- FOOTER -->
     <footer>
       <div>© <span id="year"></span> VOL Health™ – StaffHealth + Accushield Verified. All rights reserved.</div>

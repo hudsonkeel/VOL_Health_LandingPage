@@ -327,10 +327,11 @@
 
     /* Accordion grid (two columns on desktop, stacked on mobile) */
     .tool-grid{
-      margin-top:18px;
-      display:grid;
-      gap:20px;
-    }
+  margin-top:18px;
+  display:grid;
+  gap:20px;
+  align-items:start; /* KEY: prevents the other card from stretching */
+}
     @media(min-width:880px){
       .tool-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
@@ -530,7 +531,7 @@
 
       <div class="tool-grid">
         <!-- VI Expander -->
-        <details class="tool-expander" id="vol-index" open>
+       <details class="tool-expander" id="vol-index">
           <summary>
             <div class="tool-summary-row">
               <div class="tool-summary-left">

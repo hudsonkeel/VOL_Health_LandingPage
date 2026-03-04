@@ -16,11 +16,7 @@
       --border:#242944;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
 
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -43,11 +39,7 @@
       padding:8px 10px 18px;
     }
 
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
+    .logo-wrap{ display:flex; align-items:center; gap:10px; }
 
     .logo-mark{
       display:flex;
@@ -77,7 +69,7 @@
       position:relative;
       padding-bottom:3px;
     }
-    
+
     nav a:after{
       content:"";
       position:absolute;
@@ -89,19 +81,11 @@
       transition:width 0.18s ease;
     }
 
-    nav a:hover:after{
-      width:100%;
-    }
+    nav a:hover:after{ width:100%; }
 
     @media(max-width:720px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-      nav{
-        gap:14px;
-        flex-wrap:wrap;
-      }
+      header{ flex-direction:column; align-items:flex-start; }
+      nav{ gap:14px; flex-wrap:wrap; }
     }
 
     /* HERO */
@@ -118,9 +102,7 @@
     }
 
     @media(max-width:900px){
-      .hero{
-        grid-template-columns:1fr;
-      }
+      .hero{ grid-template-columns:1fr; }
     }
 
     .badge-pill{
@@ -152,9 +134,7 @@
       letter-spacing:-0.02em;
     }
 
-    h1 span{
-      color:#dbe4ff;
-    }
+    h1 span{ color:#dbe4ff; }
 
     .hero > div > p{
       margin-top:10px;
@@ -171,40 +151,45 @@
       margin-top:16px;
     }
 
-    /* Unified pill-style buttons */
+    /* Button system (pill buttons like your v6 look) */
     .btn-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      gap:8px;
       padding:10px 18px;
       border-radius:999px;
       font-size:13px;
       font-weight:800;
       text-transform:uppercase;
       letter-spacing:0.08em;
-      border:none;
-      cursor:pointer;
-      box-shadow:0 10px 26px rgba(2,12,54,0.7);
-      transition:transform 0.12s ease,box-shadow 0.12s ease,filter 0.12s ease;
       text-decoration:none;
+      cursor:pointer;
+      border:1px solid transparent;
+      transition:transform 0.12s ease,filter 0.12s ease,box-shadow 0.12s ease;
+      user-select:none;
       white-space:nowrap;
-      color:#fff;
     }
-    .btn-pill .arrow{
-      margin-left:6px;
-      font-size:15px;
-    }
-    .btn-pill:hover{
-      filter:brightness(1.06);
-      transform:translateY(-1px);
-      box-shadow:0 14px 34px rgba(2,12,54,0.9);
-    }
+    .btn-pill:hover{ filter:brightness(1.06); transform:translateY(-1px); }
 
     .btn-vi{
       background:var(--brand-blue);
+      color:#fff;
+      box-shadow:0 10px 26px rgba(2,12,54,0.7);
     }
+    .btn-vi:hover{ box-shadow:0 14px 34px rgba(2,12,54,0.9); }
+
     .btn-wsi{
       background:var(--brand-green);
+      color:#fff;
+      box-shadow:0 10px 26px rgba(6,38,22,0.65);
+    }
+    .btn-wsi:hover{ box-shadow:0 14px 34px rgba(6,38,22,0.85); }
+
+    .arrow{
+      font-size:16px;
+      line-height:0;
+      opacity:0.95;
     }
 
     .logo-row{
@@ -217,14 +202,13 @@
       text-transform:uppercase;
       letter-spacing:0.14em;
     }
-
     .logo-row img{
       height:26px;
       width:auto;
       filter:drop-shadow(0 4px 10px rgba(0,0,0,0.6));
     }
 
-    /* HERO CARD (scoreboard dashboard) */
+    /* HERO CARD */
     .hero-card{
       background:rgba(5,8,20,0.96);
       border-radius:20px;
@@ -247,9 +231,7 @@
       color:#9ca4c8;
     }
 
-    .hero-gauge{
-      margin-top:4px;
-    }
+    .hero-gauge{ margin-top:4px; }
 
     .gauge-bar{
       position:relative;
@@ -279,7 +261,6 @@
       font-size:10px;
       color:#9ca4c8;
     }
-
     .gauge-labels span:first-child{color:#7ce9b4;}
     .gauge-labels span:last-child{color:#ff9ba8;}
 
@@ -313,9 +294,7 @@
     }
 
     @media(max-width:900px){
-      .hero-card{
-        order:-1;
-      }
+      .hero-card{ order:-1; }
     }
 
     /* Sections base */
@@ -332,45 +311,110 @@
     .lead{
       font-size:0.9rem;
       color:#c4cae8;
+      max-width:720px;
     }
 
-    /* Tools section: dual-box layout for Volatility Index + WSI */
-    .tools-section{
-      margin-top:32px;
-    }
-    .section-header h2{
-      margin-bottom:6px;
-    }
+    /* Tools section */
+    .tools-section{ margin-top:32px; }
+
+    .section-header h2{ margin-bottom:6px; }
+
     .section-header .lead{
-  color:#c4cae8;
-  font-size:0.9rem;
-}
+      color:#c4cae8;
+      font-size:0.9rem;
+      max-width:720px;
+    }
+
+    /* Accordion grid (two columns on desktop, stacked on mobile) */
     .tool-grid{
       margin-top:18px;
       display:grid;
       gap:20px;
     }
     @media(min-width:880px){
-      .tool-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
+      .tool-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
-    .tool-card{
-      background:var(--card);
+
+    /* Tool Expander (v5-style open/close) */
+    .tool-expander{
+      background:rgba(5,8,20,0.85);
       border-radius:20px;
-      padding:18px 18px 20px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.7);
       border:1px solid var(--border);
+      box-shadow:0 18px 40px rgba(0,0,0,0.7);
+      overflow:hidden;
     }
-    .tool-card h3{
-      font-size:1.1rem;
-      margin-bottom:6px;
+
+    .tool-expander summary{
+      list-style:none;
+      cursor:pointer;
+      padding:16px 16px;
+      user-select:none;
     }
+    .tool-expander summary::-webkit-details-marker{ display:none; }
+
+    .tool-summary-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .tool-summary-left{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+
+    .tool-summary-title{
+      font-size:1.05rem;
+      font-weight:800;
+      color:#f5f6ff;
+      letter-spacing:-0.01em;
+      line-height:1.2;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .tool-summary-sub{
+      font-size:0.78rem;
+      color:#9ca4c8;
+      line-height:1.25;
+    }
+
+    .tool-caret{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      border:1px solid #343b5d;
+      background:rgba(8,12,32,0.85);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      color:#dbe4ff;
+      flex-shrink:0;
+      transition:transform 0.16s ease, filter 0.12s ease;
+    }
+
+    .tool-expander:hover .tool-caret{ filter:brightness(1.08); }
+
+    .tool-expander[open] .tool-caret{ transform:rotate(90deg); }
+
+    .tool-body{
+      padding:0 16px 16px;
+      border-top:1px solid rgba(36,41,68,0.7);
+    }
+
     .tool-intro{
       font-size:0.86rem;
       color:#d0d4ef;
+      margin-top:12px;
       margin-bottom:10px;
+      line-height:1.5;
     }
+
     .tool-list{
       margin:0;
       padding-left:18px;
@@ -378,9 +422,8 @@
       font-size:0.84rem;
       color:#c4cae8;
     }
-    .tool-list li{
-      margin-bottom:6px;
-    }
+    .tool-list li{ margin-bottom:6px; }
+
     .tool-card-footer{
       margin-top:12px;
     }
@@ -393,15 +436,8 @@
       font-size:11px;
       color:#7f87b0;
     }
-
-    footer a{
-      color:#9ea6ff;
-      text-decoration:none;
-    }
-
-    footer a:hover{
-      text-decoration:underline;
-    }
+    footer a{ color:#9ea6ff; text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -424,7 +460,7 @@
     <section class="hero">
       <div>
         <div class="badge-pill">
-          <span>●</span> VOL Health™ diagnostic views for volatility &amp; workforce stability
+          <span></span> VOL Health™ diagnostic views for volatility &amp; workforce stability
         </div>
 
         <h1>
@@ -438,13 +474,11 @@
         </p>
 
         <div class="hero-cta">
-          <!-- Volatility Index (blue) -->
           <a href="volatility-index.html" class="btn-pill btn-vi">
-            Open Volatility Index <span class="arrow">&rarr;</span>
+            Open Volatility Index <span class="arrow">→</span>
           </a>
-          <!-- Workforce Stability Index (green) -->
           <a href="wsi.html" class="btn-pill btn-wsi">
-            Open Workforce Stability Index <span class="arrow">&rarr;</span>
+            Open Workforce Stability Index <span class="arrow">→</span>
           </a>
         </div>
 
@@ -454,7 +488,6 @@
         </div>
       </div>
 
-      <!-- SCOREBOARD / DASHBOARD CARD -->
       <aside class="hero-card" aria-label="Sample VOL Health snapshot">
         <div class="hero-card-title">Sample VOL Health™ Snapshot</div>
         <div class="hero-card-sub">
@@ -496,44 +529,68 @@
       </div>
 
       <div class="tool-grid">
-        <!-- Left box: VOL Health Index -->
-        <article class="tool-card" id="vol-index">
-          <h3>VOL Health™ Volatility Index (VI)</h3>
-          <p class="tool-intro">
-            Directional diagnostic that scores the Trinity of Volatility, Operations &amp; Labor across ten drivers —
-            census, OT, PBJ exposure, survey risk, reimbursement, reputation, leadership bandwidth, and more.
-            Designed for a single building or an entire portfolio.
-          </p>
-          <ul class="tool-list">
-            <li><strong>Why VOL Health:</strong> Make endemic volatility visible in one stability score and economic range.</li>
-            <li><strong>How it works:</strong> Ten inputs roll into a 0–100 stability score and directional annual economics.</li>
-            <li><strong>Details:</strong> Built for senior living operators; calibrated for PBJ, OT, survey risk, and portfolio views.</li>
-          </ul>
-          <div class="tool-card-footer">
-            <a href="volatility-index.html" class="btn-pill btn-vi">
-              Open Volatility Index <span class="arrow">&rarr;</span>
-            </a>
-          </div>
-        </article>
+        <!-- VI Expander -->
+        <details class="tool-expander" id="vol-index" open>
+          <summary>
+            <div class="tool-summary-row">
+              <div class="tool-summary-left">
+                <div class="tool-summary-title">VOL Health™ Volatility Index (VI)</div>
+                <div class="tool-summary-sub">Directional diagnostic for volatility, operations, and labor strain.</div>
+              </div>
+              <div class="tool-caret">▸</div>
+            </div>
+          </summary>
 
-        <!-- Right box: Workforce Stability Index (WSI) -->
-        <article class="tool-card" id="wsi-index">
-          <h3>Workforce Stability Index (WSI)</h3>
-          <p class="tool-intro">
-            Companion view focused on the strength of your workforce pipeline. Scores staffing volatility, financial
-            exposure, operational &amp; compliance risk, and workforce pipeline health into a single WSI score.
-          </p>
-          <ul class="tool-list">
-            <li><strong>Why WSI:</strong> Quantify how unstable schedules, vacancies, and turnover drag operations and margin.</li>
-            <li><strong>How it works:</strong> Mix of direct inputs or portfolio distributions roll up into a 0–100 WSI.</li>
-            <li><strong>Details:</strong> Shows volatility cost, stabilizable upside, and workforce drag as dollar ranges.</li>
-          </ul>
-          <div class="tool-card-footer">
-            <a href="wsi.html" class="btn-pill btn-wsi">
-              Open Workforce Stability Index <span class="arrow">&rarr;</span>
-            </a>
+          <div class="tool-body">
+            <p class="tool-intro">
+              Directional diagnostic that scores the Trinity of Volatility, Operations &amp; Labor across ten drivers —
+              census, OT, PBJ exposure, survey risk, reimbursement, reputation, leadership bandwidth, and more.
+              Designed for a single building or an entire portfolio.
+            </p>
+            <ul class="tool-list">
+              <li><strong>Why VOL Health:</strong> Make endemic volatility visible in one stability score and economic range.</li>
+              <li><strong>How it works:</strong> Ten inputs roll into a 0–100 stability score and directional annual economics.</li>
+              <li><strong>Details:</strong> Built for senior living operators; calibrated for PBJ, OT, survey risk, and portfolio views.</li>
+            </ul>
+
+            <div class="tool-card-footer">
+              <a href="volatility-index.html" class="btn-pill btn-vi" style="margin-top:12px;">
+                Open Volatility Index <span class="arrow">→</span>
+              </a>
+            </div>
           </div>
-        </article>
+        </details>
+
+        <!-- WSI Expander -->
+        <details class="tool-expander" id="wsi-index">
+          <summary>
+            <div class="tool-summary-row">
+              <div class="tool-summary-left">
+                <div class="tool-summary-title">Workforce Stability Index (WSI)</div>
+                <div class="tool-summary-sub">Companion view focused on workforce pipeline stability and drag.</div>
+              </div>
+              <div class="tool-caret">▸</div>
+            </div>
+          </summary>
+
+          <div class="tool-body">
+            <p class="tool-intro">
+              Companion view focused on the strength of your workforce pipeline. Scores staffing volatility, financial
+              exposure, operational &amp; compliance risk, and workforce pipeline health into a single WSI score.
+            </p>
+            <ul class="tool-list">
+              <li><strong>Why WSI:</strong> Quantify how unstable schedules, vacancies, and turnover drag operations and margin.</li>
+              <li><strong>How it works:</strong> Mix of direct inputs or portfolio distributions roll up into a 0–100 WSI.</li>
+              <li><strong>Details:</strong> Shows volatility cost, stabilizable upside, and workforce drag as dollar ranges.</li>
+            </ul>
+
+            <div class="tool-card-footer">
+              <a href="wsi.html" class="btn-pill btn-wsi" style="margin-top:12px;">
+                Open Workforce Stability Index <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
